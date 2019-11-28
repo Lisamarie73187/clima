@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManagerDelegate {
     
     @IBOutlet weak var conditionImage: UIImageView!
     @IBOutlet weak var tempLabel: UILabel!
@@ -20,6 +20,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        weatherManager.delegate = self
         searchTextField.delegate = self
     }
     
@@ -50,7 +52,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         searchTextField.text = ""
     }
     
-
+    func didUpdateWeather(weather: WeatherModel){
+        print(weather.conditionName)
+    }
 
 }
 
