@@ -27,7 +27,6 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
     
     @IBAction func searchPressed(_ sender: UIButton) {
         searchTextField.endEditing(true)
-        print(searchTextField.text!)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -52,9 +51,12 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         searchTextField.text = ""
     }
     
-    func didUpdateWeather(weather: WeatherModel){
+    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel){
         print(weather.conditionName)
     }
-
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
 }
 
