@@ -14,8 +14,7 @@ struct WeatherModel {
     let temperature: Double
     
     var temperatureString: String {
-        let updatedTemp = temperature - 226
-        return String(format: "%.0f", updatedTemp)
+        return String(format: "%.0f", temperature)
     }
     
     var conditionName: String {
